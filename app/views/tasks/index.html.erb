@@ -1,0 +1,55 @@
+<!--<div>-->
+  <!--<%= link_to'New task', 'tasks/new' %>-->
+  <!--<% @tasks.each do |task| %>-->
+      <!--<div>-->
+        <!--<%= task.name %>-->
+        <!--<%= link_to 'update task', edit_task_path(id: task.id), method: :get%>-->
+        <!--<%= link_to 'delete task', delete_task_path(id: task.id), method: :delete %>-->
+      <!--</div>-->
+  <!--<% end %>-->
+<!--</div>-->
+
+<!-- <%= link_to t('new_task'), 'tasks/new' %>-->
+<!--  <% @tasks.each do |task| %>-->
+    <!--    <div>-->
+        <!--    <%= task.name %>-->
+        <!--    <td><%= task.done %></td>-->
+        <!--    <%= link_to 'update task', edit_task_path(id: task.id)%>-->
+        <!--      <%= link_to 'delete task', delete_task_path(id: task.id), method: :delete %>-->
+        <!--     </div>
+    <!--  <% end %>-->
+
+
+<div>
+  <div>
+    <%= current_user.email %>
+  </div>
+
+  <%= link_to t('new_task'), 'tasks/new' %>
+  <div align="center">
+    <table border = "1" style="width:100%">
+      <tr>
+        <td><%= t :status %></td>
+        <td><%= t :name %></td>
+        <td><%= t :description %></td>
+        <td><%= t :importance %></td>
+        <td><%= t :expiry %></td>
+      </tr>
+      <% @tasks.each do |task| %>
+          <tr>
+            <% if task.done%>
+                <td><%= t :done%></td>
+            <% else task.done%>
+                <td><%= t :undone%></td>
+            <% end %>
+            <td><%= task.name %></td>
+            <td><%= task.description %></td>
+            <td><%= task.importance %></td>
+            <td><%= task.expiry %></td>
+            <td><%= link_to t(:update), edit_task_path(id: task.id), method: :get %></td>
+            <td><%= link_to t(:delete), delete_task_path(id: task.id), method: :delete %></td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

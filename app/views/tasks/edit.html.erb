@@ -1,0 +1,12 @@
+<div align="center"><h2>Edit</h2></div>>
+<%= form_for @task, url: update_task_path(@task.id),  method: :post do |f| -%>
+      <p>   <%= f.hidden_field :id, value: @task.id %></p>
+      <p> <%= f.text_field :name, value: @task.name %></p>
+      <p>  <%= f.text_field :description, value: @task.description %></p>
+      <p> <%= f.text_field :importance, placeholder: 'importance' %></p>
+      <p> <%= f.date_select :expiry, order: [:day, :month, :year] %></p>
+      <p>  <%= f.check_box :done %></p>
+      <p>  <%= f.submit "save" %>
+<% end %>
+
+<%= link_to'Back', '/' %>

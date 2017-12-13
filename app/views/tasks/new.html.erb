@@ -1,0 +1,11 @@
+<div align="center">
+  <h2>New task</h2>
+  <h4>Please, enter the form</h4> </div>
+<%= form_for :task do |f| -%>
+      <p> Name   <%= f.text_field :name, placeholder: 'name' %></p>
+    <p> Description  <%= f.text_field :description, placeholder: 'description' %></p>
+    <p> Importance <%= f.text_field :importance, placeholder: 'importance' %></p>
+    <p> Date <%= f.date_select :expiry, order: [:day, :month, :year] %></p>
+    <p> <%= f.submit "Save" %>
+     <%= link_to'Back', '/' %></p>
+<% end %>
